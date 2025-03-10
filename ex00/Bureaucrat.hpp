@@ -6,20 +6,19 @@
 /*   By: miwasa <miwasa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 14:08:03 by miwasa            #+#    #+#             */
-/*   Updated: 2025/03/09 14:24:25 by miwasa           ###   ########.fr       */
+/*   Updated: 2025/03/10 14:15:13 by miwasa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#pragma once
 
 #include <iostream>
 #include <stdexcept>
 
 class Bureaucrat {
 private:
-	const std::string name;
-	int grade;
+	const std::string _name;
+	int _grade;
 
 public:
 	class GradeTooHighException : public std::exception {
@@ -40,5 +39,3 @@ public:
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
-
-#endif

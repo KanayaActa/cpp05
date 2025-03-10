@@ -6,7 +6,7 @@
 /*   By: miwasa <miwasa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 14:08:07 by miwasa            #+#    #+#             */
-/*   Updated: 2025/03/09 14:25:20 by miwasa           ###   ########.fr       */
+/*   Updated: 2025/03/10 14:16:55 by miwasa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,21 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 	return "Grade is too low!";
 }
 
-Bureaucrat::Bureaucrat() : name("Unnamed"), grade(150) {}
+Bureaucrat::Bureaucrat() : _name("Unnamed"), _grade(150) {}
 
-Bureaucrat::Bureaucrat(const std::string& name, int grade) : name(name) {
+Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name) {
 	if (grade < 1)
 		throw GradeTooHighException();
 	else if (grade > 150)
 		throw GradeTooLowException();
-	this->grade = grade;
+	this->_grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other) : name(other.name), grade(other.grade) {}
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade) {}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
 	if (this != &other) {
-		this->grade = other.grade;
+		this->_grade = other._grade;
 	}
 	return *this;
 }
@@ -42,23 +42,23 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
 Bureaucrat::~Bureaucrat() {}
 
 std::string Bureaucrat::getName() const {
-	return name;
+	return _name;
 }
 
 int Bureaucrat::getGrade() const {
-	return grade;
+	return _grade;
 }
 
 void Bureaucrat::incrementGrade() {
-	if (grade <= 1)
+	if (_grade <= 1)
 		throw GradeTooHighException();
-	grade--;
+	_grade--;
 }
 
 void Bureaucrat::decrementGrade() {
-	if (grade >= 150)
+	if (_grade >= 150)
 		throw GradeTooLowException();
-	grade++;
+	_grade++;
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
