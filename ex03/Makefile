@@ -6,11 +6,11 @@
 #    By: miwasa <miwasa@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/09 12:47:58 by miwasa            #+#    #+#              #
-#    Updated: 2025/03/11 09:59:59 by miwasa           ###   ########.fr        #
+#    Updated: 2025/03/11 14:37:25 by miwasa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= Form_Processor
+NAME		:= Intern
 
 CXX			:= c++
 CXXFLAGS	:= -Wall -Wextra -Werror
@@ -22,7 +22,7 @@ SRCS		:= main.cpp \
 				PresidentialPardonForm.cpp \
 				RobotomyRequestForm.cpp \
 				ShrubberyCreationForm.cpp \
-				Inten.cpp \
+				Intern.cpp \
 
 OBJS_DIR	:= obj
 OBJS		:= $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
